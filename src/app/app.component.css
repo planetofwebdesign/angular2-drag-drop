@@ -1,0 +1,36 @@
+.drag-zone {
+    height: 200px;
+    background-color: tan;
+}
+.drop-zone-wrapper {
+    height: 200px;
+    margin-top: 20px;
+}
+.drop-zone-wrapper .drop-zone {
+    height: 200px;
+    border:  1px solid black;
+}
+
+
+.chip {
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+    margin: 5px;
+}
+.closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: #000;
+}

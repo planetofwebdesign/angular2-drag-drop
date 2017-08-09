@@ -1,3 +1,54 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 drag-zone">
+      <div class="chip" *ngFor="let item of items" [ng2Draggable]="{zone: 'master', data: item}">
+        {{item.name}}
+      </div>
+    </div>
+
+    <div class="col-md-12 drop-zone-wrapper">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="panel panel-default drop-zone" [ng2DropTarget]="{zone:'dropZone1'}" (ng2Drop)="onDrop($event, 1)">
+            <div class="panel-heading">Drop Zone 1</div>
+            <div class="panel-body">
+              <div class="chip" *ngFor="let item of items1" [ng2Draggable]="{zone: 'dropZone1',data: item}">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+         <div class="panel panel-default drop-zone" [ng2DropTarget]="{zone:'dropZone2'}" (ng2Drop)="onDrop($event, 2)">
+            <div class="panel-heading">Drop Zone 2</div>
+            <div class="panel-body">
+              <div class="chip" *ngFor="let item of items2" [ng2Draggable]="{zone: 'dropZone2',data: item}">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ">
+         <div class="panel panel-default drop-zone" [ng2DropTarget]="{zone:'dropZone3'}" (ng2Drop)="onDrop($event, 3)">
+            <div class="panel-heading">Drop Zone 3</div>
+            <div class="panel-body">
+              <div class="chip" *ngFor="let item of items3" [ng2Draggable]="{zone: 'dropZone3',data: item}">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-default drop-zone" [ng2DropTarget]="{zone:'dropZone4'}" (ng2Drop)="onDrop($event, 4)">
+            <div class="panel-heading">Drop Zone 4</div>
+            <div class="panel-body">
+              <div class="chip" *ngFor="let item of items4" [ng2Draggable]="{zone: 'dropZone4',data: item}">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
