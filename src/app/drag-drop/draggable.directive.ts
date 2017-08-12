@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, Input} from '@angular/core';
+import { Directive, HostBinding, HostListener, Input, Output, EventEmitter} from '@angular/core';
 
 import { DragService } from './drag.service';
 import { DraggableOptions } from './drag-drop.model';
@@ -23,12 +23,26 @@ export class DraggableDirective {
         }
     }
 
+    @Output()
+    ng2DragEnd = new EventEmitter();
+
+
     @HostListener('dragstart', ['$event'])
     onDragStart(event) {
         const {zone = 'zone', data = {} } = this.options;
         this.dragService.startDrag(zone);
         // event.dataTransfer.setData('Text', JSON.stringify(data));
         event.dataTransfer.setData('Text', JSON.stringify(this.options));
+    }
+
+    @HostListener('dragend', ['$event'])
+    onDragEnd(event) {
+        debugger;
+        if (this.dragService.getDragFailed() === 'no') {
+            debugger;
+           this.ng2DragEnd.next(null);
+        }
+        
     }
 
 

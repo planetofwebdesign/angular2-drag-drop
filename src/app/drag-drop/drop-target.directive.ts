@@ -25,14 +25,15 @@ export class DropTargetDirective {
     @HostListener('dragover', ['$event'])
     onDragOver(event) {
         const { zone = 'zone'} = this.options;
-        event.preventDefault();
-        // if (this.dragService.accept(zone)) {
-        //     event.preventDefault();
-        // }
+
+        if (this.dragService.accept(zone)) {
+            event.preventDefault();
+        }
     }
 
     @HostListener('drop',['$event'])
     onDrop(event) {
+       
         const data = JSON.parse(event.dataTransfer.getData('Text'));
         this.ng2Drop.next(data);
     }

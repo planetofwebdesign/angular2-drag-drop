@@ -69,45 +69,13 @@ export class AppComponent {
     id: 19,
     name: 'karbon1'
   }];
-
-  onDrop(options: any, dropZoneId: number) {
-
-    if (dropZoneId === 1) {
-      this.items1.push(options.data);
-      this.removeDataoptions(options);
-    } else if (dropZoneId === 2) {
-      this.items2.push(options.data);
-      this.removeDataoptions(options);
-    } else if (dropZoneId === 3) {
-      this.items3.push(options.data);
-      this.removeDataoptions(options);
-    } else if (dropZoneId === 4) {
-      this.items4.push(options.data);
-      this.removeDataoptions(options);
-    }
+  
+  onDragEnd(items: any, index: number) {
+    debugger;
+    items.splice(index,1);
   }
-
-  findZoneData(options): any[] {
-    if (options.zone === 'master') {
-      return this.items;
-    } else if (options.zone === 'dropZone1') {
-      return this.items1;
-    } else if (options.zone === 'dropZone2') {
-      return this.items2;
-    } else if (options.zone === 'dropZone3') {
-      return this.items3;
-    } else if (options.zone === 'dropZone4') {
-      return this.items4;
-    }
-  }
-  removeDataoptions(options: any) {
-
-    let masterData: any[] = this.findZoneData(options);
-    masterData.forEach((item, index) => {
-      if (item.id === options.data.id) {
-        masterData.splice(index, 1);
-      }
-    });
-
+  onDrop(options: any, items: any) {
+    debugger;
+    items.push(options.data);
   }
 }
